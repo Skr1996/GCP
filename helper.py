@@ -12,22 +12,3 @@ class GCP_Helper:
 
         blob.upload_from_filename(source_file_name)
         print(f"File {source_file_name} uploaded to {destination_blob_name} in {bucket_name}")
-
-def main():
-    if len(sys.argv) != 4:
-        print("Usage: python app.py <file_path> <bucket_name> <destination_blob_name>")
-        sys.exit(1)
-
-    file_path, bucket_name, destination_blob_name = sys.argv[1:]
-
-    # Replace 'your-project-id' with your actual Google Cloud project ID
-    project_id = 'manipalpr-1677473940279'
-
-    # Create an instance of GCP_Helper
-    gcp_helper = GCP_Helper(project_id)
-
-    # Upload file to GCS
-    gcp_helper.upload_file_cloud_storage(bucket_name, file_path, destination_blob_name)
-
-if __name__ == "__main__":
-    main()
